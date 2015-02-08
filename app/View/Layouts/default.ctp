@@ -24,10 +24,10 @@
 <div id="container" class="grid">
 <header>
 	<div class="col_6 column">
-		<h1><a href="index.html"><strong>Job</strong>Finds</a></h1>
+		<h1><a href="<?php echo $this->webroot; ?>"><strong>Job</strong>Finds</a></h1>
 	</div>
 	<div class="col_6 column right">
-		<form id="add_job_link">
+		<form id="add_job_link" action="<?php echo $this->webroot; ?>jobs/add">
 			<button class="large green"><i class="fa fa-plus"></i>Add Job</button>
 		</form>
 	</div>
@@ -37,10 +37,14 @@
 <!-- Menu Horizontal -->
 <div class="col_12 column">
 	<ul class="menu">
-		<li class="current"><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-		<li><a href="jobs.html"><i class="fa fa-desktop"></i> Browse Jobs</a></li>
-		<li><a href="register.html"><i class="fa fa-user"></i> Register</a></li>
-		<li><a href="login.html"><i class="fa fa-key"></i> Login</a></li>
+		<li <?php echo (($this->here == '/testphp/jobfinder-cakephp-kickstart/' || $this->here == '/testphp/jobfinder-cakephp-kickstart/')? 'class="current"':''); ?> >
+			<a href="<?php echo $this->webroot; ?>"><i class="fa fa-home"></i> Home</a></li>
+		<li <?php echo ($this->here == '/testphp/jobfinder-cakephp-kickstart/jobs/browse')? 'class="current"':''; ?> >
+			<a href="<?php echo $this->webroot; ?>jobs/browse"><i class="fa fa-desktop"></i> Browse Jobs</a></li>
+		<li <?php echo ($this->here == '/testphp/jobfinder-cakephp-kickstart/users/register')? 'class="current"':''; ?> >
+			<a href="<?php echo $this->webroot; ?>users/register"><i class="fa fa-user"></i> Register</a></li>
+		<li <?php echo ($this->here == '/testphp/jobfinder-cakephp-kickstart/users/login')? 'class="current"':''; ?> >
+			<a href="<?php echo $this->webroot; ?>users/login"><i class="fa fa-key"></i> Login</a></li>
 	</ul>
 </div>
 
