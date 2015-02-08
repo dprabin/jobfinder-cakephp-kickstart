@@ -7,7 +7,6 @@ class JobsController extends AppController{
 	 */
 	public function index(){
 		$this->set('jobs',$jobs);
-
 	}
 
 }
