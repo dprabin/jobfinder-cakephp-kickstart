@@ -8,8 +8,7 @@ class JobsController extends AppController{
 	public function index(){
 		//Set Query options
 		$options = array(
-			'order' => array('Job.created' => 'asc'),
-			'limit' => 2
+			'order' => array('Job.created' => 'asc')
 			);
 		// Get Job Information
 		$jobs = $this->Job->find('all', $options);
