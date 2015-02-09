@@ -1,5 +1,6 @@
-	<h3>Latest Job Listings</h3>
-	<ul id="listings">
+<h3>Latest Job Listings</h3>
+<?php if($jobs): ?>
+<ul id="listings">
 	<?php foreach($jobs as $job) : ?>
 		<li>
 			<div class="type"><span style="background:<?php echo $job['Type']['color']; ?>"><?php echo $job['Type']['name']; ?></span></div>
@@ -13,6 +14,8 @@
 				<?php echo $this->Html->link('Read More',array('controller'=>'jobs','action'=>'view',$job['Job']['id'])); ?>
 			</div>
 		</li>
-		
 	<?php endforeach; ?>
-	</ul>
+</ul>
+<?php else : ?>
+		<p>Sorry, No Jobs Available</p>
+<?php endif; ?>
