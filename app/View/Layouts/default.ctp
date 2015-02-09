@@ -54,6 +54,7 @@
 
 <!-- Job listing -->
 <div class="col_12 column">
+<?php echo $this->Session->flash(); ?>
 <?php echo $this->fetch('content'); ?>
 </div>
 
