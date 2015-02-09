@@ -1,6 +1,6 @@
 <div id="category_block">
 	<ul>
-		<?php foreach($categories as $category); ?>
+		<?php foreach($categories as $category): ?>
 			<li><?php echo $this->Html->link($category['Category']['name'],array('action'=>'browse',$category['Category']['id'])); ?></li>
 		<?php endforeach; ?>
 	</ul>
