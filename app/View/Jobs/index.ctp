@@ -1,29 +1,18 @@
-<?php foreach($jobs as $job) : ?>
-
-<p><?php echo $job['Job']['title'] ?></p>
-<?php endforeach; ?>
-
 	<h3>Latest Job Listings</h3>
 	<ul id="listings">
+	<?php foreach($jobs as $job) : ?>
 		<li>
-			<div class="type"><span class="green">Full Time</span></div>
+			<div class="type"><span class="green"><?php echo $job['Type']['name'] ?></span></div>
 			<div class="description">
-				<h5>Senior Graphic Designer (Kathmandu, Nepal)</h5>
-				Senior graphics designer is required for a  reputed publishing company. He/she will be responsible for overall graphics designing, instructing fellow designers and finalizing the designs. <a href="details.html"><i class="fa fa-plus"></i>Read More</a>
+				<h5><?php echo $job['Job']['title'] ?> (<?php echo $job['Job']['city'].', '.$job['Job']['state']; ?>)</h5>
+				<span id="list_date">
+					<?php echo $this->Time->format('F jS h:i A',$job['Job']['created']); ?>
+				</span>
+				<?php echo $this->Text->truncate($job['Job']['description'],210,array('ellipsis'=>'...','exact'=>false)); ?> 
+				<i class="fa fa-plus"></i>
+				<?php echo $this->Html->link('Read More',array('controller'=>'jobs','action'=>'view',$job['Job']['id'])); ?>
 			</div>
 		</li>
-		<li>
-			<div class="type"><span class="blue">Part Time</span></div>
-			<div class="description">
-				<h5>Senior Graphic Designer (Kathmandu, Nepal)</h5>
-				Senior graphics designer is required for a  reputed publishing company. He/she will be responsible for overall graphics designing, instructing fellow designers and finalizing the designs. <a href="details.php"><i class="fa fa-plus"></i>Read More</a>
-			</div>
-		</li>
-		<li>
-			<div class="type"><span class="green">Full Time</span></div>
-			<div class="description">
-				<h5>Senior Graphic Designer (Kathmandu, Nepal)</h5>
-				Senior graphics designer is required for a  reputed publishing company. He/she will be responsible for overall graphics designing, instructing fellow designers and finalizing the designs. <a href="details.php"><i class="fa fa-plus"></i>Read more</a>
-			</div>
-		</li>
+		
+	<?php endforeach; ?>
 	</ul>
