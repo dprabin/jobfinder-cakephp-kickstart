@@ -1,3 +1,4 @@
+<!-- Display categories list -->
 <div id="category_block">
 	<ul>
 		<?php foreach($categories as $category): ?>
@@ -6,6 +7,10 @@
 	</ul>
 </div>
 
+<!-- Clear above settings -->
+<div class="clearfix"></div><br />
+
+<!-- List Jobs -->
 <h3>Latest Job Listings</h3>
 <?php if($jobs): ?>
 <ul id="listings">
