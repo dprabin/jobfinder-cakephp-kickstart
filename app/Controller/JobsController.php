@@ -24,7 +24,7 @@ class JobsController extends AppController{
 		//Set Category query options
 		$options = array('order'=>array('Category.name'=>'asc'));
 		//Get Categories
-		$categories = $this->Job->Category->find('all',$optoins);
+		$categories = $this->Job->Category->find('all',$options);
 		//Set Categories
 		$this->set('categories',$categories);
 
