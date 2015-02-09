@@ -2,7 +2,7 @@
 	<ul id="listings">
 	<?php foreach($jobs as $job) : ?>
 		<li>
-			<div class="type"><span class="green"><?php echo $job['Type']['name'] ?></span></div>
+			<div class="type"><span style="background:<?php echo $job['Type']['color']; ?>"><?php echo $job['Type']['name']; ?></span></div>
 			<div class="description">
 				<h5><?php echo $job['Job']['title'] ?> (<?php echo $job['Job']['city'].', '.$job['Job']['state']; ?>)</h5>
 				<span id="list_date">
