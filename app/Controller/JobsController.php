@@ -20,9 +20,19 @@ class JobsController extends AppController{
 	 * Job Browse Method
 	*/
 	public function browse($category=null){
+		//---------- Make categiries Variable available in View ------
+		//Set Category query options
+		$options = array('order'=>array('Category.name'=>'asc'));
+		//Get Categories
+		$categories = $this->Job->Category->find('all',$optoins);
+		//Set Categories
+		$this->set('categories',$categories);
+
+
+		//---------- Make jobs variable available in view ------------
 		//Init Conditions array
 		$conditions = array();
-		
+
 		if($category != null){
 			$conditions[]=array('Job.category_id like'=>'%'.$category.'%');
 		}
