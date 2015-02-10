@@ -30,6 +30,18 @@ class JobsController extends AppController{
 	 * Job Browse Method
 	*/
 	public function browse($category=null){
+		//Init Conditions array
+		$conditions = array();
+
+		//Check keyword filter
+		if($this->request->is('post')){
+			if(!empty($this->request->data('keywords'))){
+				$conditions[]=array('Job.title like'=>'%'.$this->request->data('keywords').'%');
+			}
+		}
+
+
+
 		//---------- Make categiries Variable available in View ------
 		// Find all Categories
 		//Set Category query options
@@ -42,10 +54,6 @@ class JobsController extends AppController{
 
 		//---------- Make jobs variable available in view ------------
 		//Find jobs by category id
-
-		//Init Conditions array
-		$conditions = array();
-
 		if($category != null){
 			$conditions[]=array('Job.category_id like'=>'%'.$category.'%');
 		}
