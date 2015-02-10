@@ -1,6 +1,4 @@
-<!-- Search -->
-
-
+<!-- Search bar html code -->
 <div id="search_area" class="col_12 column">
 	<form class="horizontal" method="post" action="#">
 		<input id="keywords" type="text" placeholder="Enter Keywords ..." />
@@ -12,15 +10,11 @@
 			<option value="Malaysia">Malaysia</option>
 			<option value="Saudi Arabia">Saudi Arabia</option>
 		</select>
-		<select id="category_select">
-			<option>Select Category</option>
-			<option value="Banking and Accounting">Banking and Accounting</option>
-			<option value="Construction">Construction</option>
-			<option value="Fashion and Style">Fashion and Style</option>
-			<option value="Food and Restaurant">Food and Restaurant</option>
-			<option value="Healthcare">Healthcare</option>
-			<option value="Retail and Sales">Retail and Sales</option>
-			<option value="Technology">Technology</option>
+		<select id="category_select" name="category">
+			<option>Select Category</option>		
+			<?php foreach($categories as $category): ?>
+				<option value="<?php echo $category['Category']['id']; ?>" ><?php echo $category['Category']['name']; ?>a</option>
+			<?php endforeach; ?>
 		</select>
 		<button type="submit">Submit</button>
 	</form>
