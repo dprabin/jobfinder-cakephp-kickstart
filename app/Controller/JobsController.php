@@ -35,12 +35,17 @@ class JobsController extends AppController{
 
 		//Check keyword filter
 		if($this->request->is('post')) {
-			if(true) { //if(!empty($this->request->data('keyword'))) {
+			if($this->request->data('keyword') != '') {
 				$conditions[]=array( 'or' => array(
 					'Job.title like'=>'%'.$this->request->data('keywords').'%',
 					'Job.description like'=>'%'.$this->request->data('keywords').'%'
 					));
 			}
+			
+		
+		//Check state filter
+			if(!empty($this->request->data('state') && $this->request->date('state') != '')) {
+				$conditions[]=array( 'Job.state like'=>'%'.$this->request->data('state').'%');
 			}
 		}
 
