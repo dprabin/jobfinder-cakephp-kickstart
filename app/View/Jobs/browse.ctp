@@ -1,3 +1,7 @@
+<!-- Search bar -->
+<?php echo $this->element('search'); ?>
+<br />
+
 <!-- Display categories list -->
 <div id="category_block">
 	<ul>

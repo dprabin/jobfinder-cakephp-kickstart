@@ -1,5 +1,6 @@
 <!-- Search bar -->
 <?php echo $this->element('search'); ?>
+<br />
 
 <h3>Latest Job Listings</h3>
 <ul id="listings">
