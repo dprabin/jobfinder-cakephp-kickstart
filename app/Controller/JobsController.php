@@ -21,6 +21,8 @@ class JobsController extends AppController{
 	*/
 	public function browse($category=null){
 		//---------- Make categiries Variable available in View ------
+		// Find all Categories
+
 		//Set Category query options
 		$options = array('order'=>array('Category.name'=>'asc'));
 		//Get Categories
@@ -30,6 +32,8 @@ class JobsController extends AppController{
 
 
 		//---------- Make jobs variable available in view ------------
+		//Find jobs by category id
+
 		//Init Conditions array
 		$conditions = array();
 
