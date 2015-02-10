@@ -6,6 +6,16 @@ class JobsController extends AppController{
 	 * Defualt Index method
 	 */
 	public function index(){
+		//---------- Make categiries Variable available in View ------
+		// Find all Categories
+		//Set Category query options
+		$options = array('order'=>array('Category.name'=>'asc'));
+		//Get Categories
+		$categories = $this->Job->Category->find('all',$options);
+		//Set Categories
+		$this->set('categories',$categories);
+
+
 		//Set Query options
 		$options = array(
 			'order' => array('Job.created' => 'asc')
@@ -22,7 +32,6 @@ class JobsController extends AppController{
 	public function browse($category=null){
 		//---------- Make categiries Variable available in View ------
 		// Find all Categories
-
 		//Set Category query options
 		$options = array('order'=>array('Category.name'=>'asc'));
 		//Get Categories
