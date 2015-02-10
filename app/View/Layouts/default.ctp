@@ -48,10 +48,6 @@
 	</ul>
 </div>
 
-<!-- Search bar -->
-<?php echo $this->element('search'); ?>
-
-
 <!-- Job listing -->
 <div class="col_12 column">
 <?php echo $this->Session->flash(); ?>
