@@ -23,6 +23,9 @@ class JobsController extends AppController{
 		// Get Job Information
 		$jobs = $this->Job->find('all', $options);
 
+		//Set Title
+		$this->set('title_for_layout', 'JobFinds | Welcome');
+
 		$this->set('jobs',$jobs);
 	}
 
@@ -75,6 +78,9 @@ class JobsController extends AppController{
 			'order'=>array('Job.created'=>'desc'),
 			'conditions'=>$conditions,
 			'limit'=>8 );
+
+		//Set Title
+		$this->set('title_for_layout', 'JobFinds | Browse Jobs');
 
 		// Get Job Information
 		$jobs = $this->Job->find('all', $options);
