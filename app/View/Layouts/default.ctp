@@ -58,7 +58,7 @@
 
 
 <footer>
-	<p>Copyright @copy; 2015, JobFinds, All Rights Reserved</p>
+	<p>Copyright &copy; 2015, JobFinds, All Rights Reserved</p>
 </footer>
 
 
