@@ -105,6 +105,25 @@ class JobsController extends AppController{
 		$this->set('title_for_layout', $job['Job']['title']);
 		$this->Set('job',$job);
 	}
+
+	/*
+	 * Add Job
+	 */
+	public function add(){
+		//Get Categories for select list
+		$options = array('order'=>array('Category.name'=>'asc'));
+		$categories = $this->Job->Category->find('list',$options);
+		$this->set('categories',$categories);
+
+		//Get Categories for select list
+		$types = $this->Job->Type->find('list');
+		$this->set('types',$types);
+
+		if($this->request->is('post')) {
+
+		}
+
+	}
 }
 
 ?>
