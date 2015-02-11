@@ -90,22 +90,21 @@ class JobsController extends AppController{
 	/*
 	 * View Single Job
 	 */
-	public function view($id){
-		if(!id){
+	public function details($id){
+		if(!$id){
 			throw new NotFoundException(__('Invalid Job Listing'));
 		}
 
 		$job = $this->Job->findById($id);
 
-		if(!job){
+		if(!$job){
 			throw new NotFoundException(__('Invalid Job Listing'));
 		}
 
 		//Set Title
 		$this->set('title_for_layout', $job['Job']['title']);
-		$this->Set('job','$job');
+		$this->Set('job',$job);
 	}
-
 }
 
 ?>
