@@ -14,7 +14,7 @@
 			</span>
 			<?php echo $this->Text->truncate($job['Job']['description'],210,array('ellipsis'=>'...','exact'=>false)); ?> 
 			<i class="fa fa-plus"></i>
-			<?php echo $this->Html->link('Read More',array('controller'=>'jobs','action'=>'view',$job['Job']['id'])); ?>
+			<?php echo $this->Html->link('Read More',array('controller'=>'jobs','action'=>'details',$job['Job']['id'])); ?>
 		</div>
 	</li>
 	
