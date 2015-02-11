@@ -13,7 +13,7 @@
 		<select id="category_select" name="category">
 			<option>Select Category</option>		
 			<?php foreach($categories as $category): ?>
-				<option value="<?php echo $category['Category']['id']; ?>" ><?php echo $category['Category']['name']; ?>a</option>
+				<option value="<?php echo $category['Category']['id']; ?>" ><?php echo $category['Category']['name']; ?></option>
 			<?php endforeach; ?>
 		</select>
 		<button type="submit">Submit</button>
