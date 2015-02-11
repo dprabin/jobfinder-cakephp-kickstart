@@ -32,24 +32,28 @@ class JobsController extends AppController{
 	public function browse($category=null){
 		//Init Conditions array
 		$conditions = array();
+//echo $this->request->data('keywords').'<br><br>'.$this->request->data('states').'<br><br>'.$this->request->data('category');//die();
 
 		//Check keyword filter
 		if($this->request->is('post')) {
-			if($this->request->data('keyword') != '') {
+			if($this->request->data('keywords') != '') { //(!empty($this->request->data('keyword'))) {
 				$conditions[]=array( 'or' => array(
 					'Job.title like'=>'%'.$this->request->data('keywords').'%',
 					'Job.description like'=>'%'.$this->request->data('keywords').'%'
 					));
 			}
-			
 		
-		//Check state filter
-			if(!empty($this->request->data('state') && $this->request->date('state') != '')) {
-				$conditions[]=array( 'Job.state like'=>'%'.$this->request->data('state').'%');
+			//Check state filter
+			if($this->request->data('states') != 'Select Country' && $this->request->data('states') != '') {
+				$conditions[]=array( 'Job.state like'=>'%'.$this->request->data('states').'%');
 			}
-		}
 
-
+			//Check category filter
+			if($this->request->data('category') != 'Select Category' && $this->request->data('category') != '') {
+				$conditions[]=array( 'Job.category_id like'=>'%'.$this->request->data('category').'%');
+			}
+		} 
+		//print_r($conditions);die();
 
 		//---------- Make categiries Variable available in View ------
 		// Find all Categories
