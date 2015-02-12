@@ -33,5 +33,14 @@ class UsersController extends AppController{
 			}
 		}
 	}
+
+	/*
+	 * Log out User
+	 * defining function automatically logs us out
+	 * Only redirection is needed
+	 */
+	public function logout(){
+		return $this->redirect($this->Auth->logout());
+	}
 }
 ?>
