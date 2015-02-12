@@ -123,7 +123,7 @@ class JobsController extends AppController{
 		if($this->request->is('post')) {
 			$this->Job->create();
 			//save logged user_id
-			$this->request->data['Job']['user_id']=1;
+			$this->request->data['Job']['user_id']=$this->Auth->user('id');
 
 			if($this->Job->save($this->request->data)){
 				$this->Session->setFlash(__('Your Job has been listed'));
