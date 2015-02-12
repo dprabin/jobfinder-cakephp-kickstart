@@ -6,7 +6,7 @@ class UsersController extends AppController{
 		//Define User Roles to be passed to view
 		//Better to be implemented through db table
 		$userRole = array('Job Seeker'=>'Job Seeker', 'Employer'=>'Employer');
-		$this->set('userRole'=>$userRole);
+		$this->set('userRole',$userRole);
 	}
 
 }
