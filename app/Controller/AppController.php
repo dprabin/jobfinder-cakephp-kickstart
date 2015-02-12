@@ -46,14 +46,14 @@ class AppController extends Controller {
 			)
 		);
 
-	//Run this function before any thing to happen
+	// This function runs before login filter is applied
 	public function beforeFilter(){
 		//Define Public Actions
 		$this->Auth->allow('index','browse','register');//this can be viewed by guest user before login filter is applied
 	}
 
-	//Run this funciton before render
+	// This funciton runs before rendering the content
 	public function beforeRender(){
-		$this->set('userData',$this->Auth->user());
+		$this->set('userData',$this->Auth->user()); //set data for display in layouts/default.ctp
 	}
 }
