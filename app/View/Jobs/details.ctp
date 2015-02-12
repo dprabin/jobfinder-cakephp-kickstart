@@ -6,3 +6,7 @@
 	<li><strong>Contact Email:</strong><a href="mailto:<?php echo $job['Job']['contact_email']; ?>"><?php echo $job['Job']['contact_email']; ?></a></li>
 </ul>
 <p><a href="<?php echo $this->webroot; ?>jobs/browse">Back to Jobs Listings</a></p>
+
+<br /><br />
+<?php echo $this->Html->link('Edit',array('action'=>'edit',$job['Job']['id'])); ?> | 
+<?php echo $this->Form->postLink('Delete',array('action'=>'delete',$job['Job']['id']), array('confirm'=> 'Are you sure?')); ?>
