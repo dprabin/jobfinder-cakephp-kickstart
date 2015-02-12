@@ -47,6 +47,6 @@ class AppController extends Controller {
 		);
 	public function beforeFilter(){
 		//Define Public Actions
-		$this->Auth->allow('index','view','browse');//this can be viewed by guest user
+		$this->Auth->allow('index','details','browse');//this can be viewed by guest user before login filter is applied
 	}
 }
