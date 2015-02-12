@@ -7,6 +7,9 @@
 </ul>
 <p><a href="<?php echo $this->webroot; ?>jobs/browse">Back to Jobs Listings</a></p>
 
-<br /><br />
+
+<?php if($userData['id'] == $job['Job']['user_id']): ?>
+<br /><br />	
 <?php echo $this->Html->link('Edit',array('action'=>'edit',$job['Job']['id'])); ?> | 
 <?php echo $this->Form->postLink('Delete',array('action'=>'delete',$job['Job']['id']), array('confirm'=> 'Are you sure?')); ?>
+<?php endif; ?>
