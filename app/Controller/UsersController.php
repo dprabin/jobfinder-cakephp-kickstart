@@ -20,5 +20,18 @@ class UsersController extends AppController{
 			}
 		}
 	}
+
+	/*
+	 * Login User
+	 */
+	public function login(){
+		if($this->request->is('post')){
+			if($this->Auth->login()){
+				return $this->redirect($this->Auth->redirect);
+			} else {
+				$this->Session->setFlash(__('Unable to login. Please supply correct password.'));
+			}
+		}
+	}
 }
 ?>
