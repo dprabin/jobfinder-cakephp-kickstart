@@ -156,7 +156,7 @@ class JobsController extends AppController{
 		}
 
 
-		if($this->request->is('job','put')) { //put to update
+		if($this->request->is(array('job','put'))) { //put to update
 			$this->Job->id = $id;
 			//save logged user_id
 			$this->request->data['Job']['user_id']=1;
@@ -167,6 +167,8 @@ class JobsController extends AppController{
 			} else {
 				$this->Session->setFlash(__('Unable to update your job'));
 			}
+		} else { //if(!$this->request->data){
+			$this->request->data = $job;
 		}
 	}
 
