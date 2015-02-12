@@ -17,5 +17,3 @@
 	echo $this->Form->input('contact_email');
 	echo $this->Form->end('Add Job'); ?>
 </fieldset>
-<?php
-?>
