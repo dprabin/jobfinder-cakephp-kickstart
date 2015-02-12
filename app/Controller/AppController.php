@@ -51,4 +51,9 @@ class AppController extends Controller {
 		//Define Public Actions
 		$this->Auth->allow('index','browse','register');//this can be viewed by guest user before login filter is applied
 	}
+
+	//Run this funciton before render
+	public function beforeRender(){
+		$this->set('userData',$this->Auth->user());
+	}
 }
