@@ -43,5 +43,21 @@ class User extends AppModel{
 				)
 			)
 		);
+
+	/*
+	 * Custom Validation function - Match field Values
+	 */
+	function identicalFieldValues($field=array(),$compare_field=null){
+		foreach($field as $key => $value){
+			$vl = $value;
+			$v2 = $this->data[$this->name][$compare_field];
+			if($v1 !== $v2){
+				return FALSE;
+			} else {
+				continue;
+			}
+		}
+		return TRUE;
+	}
 }
 ?>
