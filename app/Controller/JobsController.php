@@ -116,7 +116,7 @@ class JobsController extends AppController{
 		$categories = $this->Job->Category->find('list',$options);
 		$this->set('categories',$categories);
 
-		//Get Categories for select list
+		//Get type of job for select list
 		$types = $this->Job->Type->find('list');
 		$this->set('types',$types);
 
@@ -132,8 +132,44 @@ class JobsController extends AppController{
 				$this->Session->setFlash(__('Unable to add your job'));
 			}
 		}
-
 	}
+
+	/*
+	 * Edit Job
+	 */
+	public function edit($id){
+		//Get Categories for select list
+		$options = array('order'=>array('Category.name'=>'asc'));
+		$categories = $this->Job->Category->find('list',$options);
+		$this->set('categories',$categories);
+
+		//Get type of job for select list
+		$types = $this->Job->Type->find('list');
+		$this->set('types',$types);
+
+		if(!$id){
+			throw new NotFoundException(__('Invalid job listing'));
+		}
+		$job = $this->Job->findById($id);
+		if(!$job){
+			throw new NotFoundException(__('Invalid job listing'));
+		}
+
+
+		if($this->request->is('job','put')) { //put to update
+			$this->Job->id = $id;
+			//save logged user_id
+			$this->request->data['Job']['user_id']=1;
+
+			if($this->Job->save($this->request->data)){
+				$this->Session->setFlash(__('Your Job has been updated'));
+				return $this->redirect(array('action'=>'index'));
+			} else {
+				$this->Session->setFlash(__('Unable to update your job'));
+			}
+		}
+	}
+
 }
 
 ?>
