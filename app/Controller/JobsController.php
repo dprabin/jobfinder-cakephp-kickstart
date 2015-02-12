@@ -172,6 +172,18 @@ class JobsController extends AppController{
 		}
 	}
 
+	/*
+	 * Delete Job
+	 */
+	public function delete($id){
+		if($this->request->is('get')) {
+			throw new MethodNotAllowedException();
+		}
+		if($this->Job->delete($id)){
+			$this->Session->setFlash(__('The job with id: %s has been deleted.',h($id)));
+			return $this->redirect(array('action'=>'index'));
+		}
+	}
 }
 
 ?>
