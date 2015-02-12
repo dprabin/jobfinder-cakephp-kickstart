@@ -120,7 +120,16 @@ class JobsController extends AppController{
 		$this->set('types',$types);
 
 		if($this->request->is('post')) {
+			$this->Job->create();
+			//save logged user_id
+			$this->request->data['Job']['user_id']=1;
 
+			if($this->Job->save($this->request->data)){
+				$this->Session->setFlash(__('Your Job has been listed'));
+				return $this->redirect(array('action'=>'index'));
+			} else {
+				$this->Session->setFlash(__('Unable to add your job'));
+			}
 		}
 
 	}
