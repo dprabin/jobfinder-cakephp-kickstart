@@ -56,6 +56,21 @@ class Job extends AppModel{
 				'message'	=> 'Please enter your email address')
 			)
 		);
+
+	/*
+	 * Before anything is saved to db, this function is run
+	 */
+	public function beforeSave($options = array()) {
+		//run this before saving to db
+		//echo "before save";
+		return true;
+	}
+	public function beforeUpdate($options = array()) {
+		//run this before saving to db
+		echo "before update";
+		return true;
+	}
+
 }
 
 ?>
