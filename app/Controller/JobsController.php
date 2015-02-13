@@ -155,7 +155,6 @@ class JobsController extends AppController{
 			throw new NotFoundException(__('Invalid job listing'));
 		}
 
-
 		if($this->request->is(array('job','put'))) { //put to update
 			$this->Job->id = $id;
 			//save logged user_id
