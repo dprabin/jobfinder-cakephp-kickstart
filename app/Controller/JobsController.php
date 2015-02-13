@@ -111,6 +111,11 @@ class JobsController extends AppController{
 	 * Add Job
 	 */
 	public function add(){
+		$userData = $this->Auth->user();
+		if($userData['role'] != 'Employer'){
+			$this->Session->setFlash(__('You need to be employer to add a job'));
+			return $this->redirect(array('action'=>'index'));
+		}
 		//Get Categories for select list
 		$options = array('order'=>array('Category.name'=>'asc'));
 		$categories = $this->Job->Category->find('list',$options);
