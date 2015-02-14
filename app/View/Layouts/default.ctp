@@ -28,8 +28,7 @@
 	</div>
 	<div class="col_6 column right welcome">
 		<?php if(AuthComponent::user('id')): ?>
-			<h6>Welcome <strong><?php echo $userData['username']; ?></strong></a></h6>
-			<a href="<?php echo $this->webroot; ?>/users/logout">Logout</a>
+			<div class="user-information"><h6>Welcome <strong><?php echo $userData['username']; ?></strong></a></h6></div>
 		<?php endif; ?>
 	</div>
 	<div class="col_2 column right">
@@ -47,10 +46,15 @@
 			<a href="<?php echo $this->webroot; ?>"><i class="fa fa-home"></i> Home</a></li>
 		<li <?php echo ($this->here == '/testphp/jobfinder-cakephp-kickstart/jobs/browse')? 'class="current"':''; ?> >
 			<a href="<?php echo $this->webroot; ?>jobs/browse"><i class="fa fa-desktop"></i> Browse Jobs</a></li>
+		<?php if(!$userData['id']): ?>
 		<li <?php echo ($this->here == '/testphp/jobfinder-cakephp-kickstart/users/register')? 'class="current"':''; ?> >
 			<a href="<?php echo $this->webroot; ?>users/register"><i class="fa fa-user"></i> Register</a></li>
 		<li <?php echo ($this->here == '/testphp/jobfinder-cakephp-kickstart/users/login')? 'class="current"':''; ?> >
 			<a href="<?php echo $this->webroot; ?>users/login"><i class="fa fa-key"></i> Login</a></li>
+		<?php else: ?>
+		<li <?php echo ($this->here == '/testphp/jobfinder-cakephp-kickstart/users/logout')? 'class="current"':''; ?> >
+			<a href="<?php echo $this->webroot; ?>users/login"><i class="fa fa-key"></i> Logout</a></li>
+		<?php endif; ?>
 	</ul>
 </div>
 
