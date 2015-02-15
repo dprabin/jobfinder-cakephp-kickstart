@@ -1,4 +1,5 @@
 <h3><?php echo $job['Job']['title']; ?></h3>
+<h5>Job Details: </h5>
 <ul id="details">
 	<li><strong>Location:</strong> <?php echo $job['Job']['city']; ?>, <?php echo $job['Job']['state']; ?></li>
 	<li><strong>Job Type:</strong> <?php echo $job['Type']['name']; ?></li>
